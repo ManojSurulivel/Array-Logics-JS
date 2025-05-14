@@ -363,3 +363,209 @@ console.log(wordCount(["apple", "banana", "apple", "orange", "banana", "apple"])
 ```
 
 ---
+
+Here are **20 JavaScript Array Questions with Answers**:
+
+---
+
+### **1. Create an array with three elements and print out the second element.**
+
+```js
+const arr = [10, 20, 30];
+console.log(arr[1]); // Output: 20
+```
+
+---
+
+### **2. Create an array with five elements and print out the length of the array.**
+
+```js
+const arr = [1, 2, 3, 4, 5];
+console.log(arr.length); // Output: 5
+```
+
+---
+
+### **3. Create an array with four elements and print out each element using a for loop.**
+
+```js
+const arr = [5, 10, 15, 20];
+for (let i = 0; i < arr.length; i++) {
+  console.log(arr[i]);
+}
+```
+
+---
+
+### **4. Create an array with six elements and print out each element using a forEach loop.**
+
+```js
+const arr = [2, 4, 6, 8, 10, 12];
+arr.forEach(el => console.log(el));
+```
+
+---
+
+### **5. Create an array with three elements and add a fourth element to the end of the array.**
+
+```js
+const arr = [1, 2, 3];
+arr.push(4);
+console.log(arr); // Output: [1, 2, 3, 4]
+```
+
+---
+
+### **6. Create an array with four elements and remove the second element.**
+
+```js
+const arr = [10, 20, 30, 40];
+arr.splice(1, 1);
+console.log(arr); // Output: [10, 30, 40]
+```
+
+---
+
+### **7. Create an array with five elements and remove the last element.**
+
+```js
+const arr = [1, 2, 3, 4, 5];
+arr.pop();
+console.log(arr); // Output: [1, 2, 3, 4]
+```
+
+---
+
+### **8. Create an array with three elements and check if the array includes a specific value.**
+
+```js
+const arr = [100, 200, 300];
+console.log(arr.includes(200)); // Output: true
+```
+
+---
+
+### **9. Create an array with five elements and sort the array in ascending order.**
+
+```js
+const arr = [5, 1, 3, 4, 2];
+arr.sort((a, b) => a - b);
+console.log(arr); // Output: [1, 2, 3, 4, 5]
+```
+
+---
+
+### **10. Create an array with five elements and sort the array in descending order.**
+
+```js
+const arr = [5, 1, 3, 4, 2];
+arr.sort((a, b) => b - a);
+console.log(arr); // Output: [5, 4, 3, 2, 1]
+```
+
+---
+
+### **11. Create two arrays, concatenate them and print out the resulting array.**
+
+```js
+const arr1 = [1, 2, 3];
+const arr2 = [4, 5, 6];
+const result = arr1.concat(arr2);
+console.log(result); // Output: [1, 2, 3, 4, 5, 6]
+```
+
+---
+
+### **12. Create an array with three elements and convert it to a string.**
+
+```js
+const arr = [10, 20, 30];
+console.log(arr.toString()); // Output: "10,20,30"
+```
+
+---
+
+### **13. Create an array with four elements and reverse the order of the elements.**
+
+```js
+const arr = [1, 2, 3, 4];
+arr.reverse();
+console.log(arr); // Output: [4, 3, 2, 1]
+```
+
+---
+
+### **14. Create an array with five elements and find the index of a specific value.**
+
+```js
+const arr = [10, 20, 30, 40, 50];
+console.log(arr.indexOf(30)); // Output: 2
+```
+
+---
+
+### **15. Create an array with six elements and slice the array to create a new array with the first three elements.**
+
+```js
+const arr = [5, 10, 15, 20, 25, 30];
+const sliced = arr.slice(0, 3);
+console.log(sliced); // Output: [5, 10, 15]
+```
+
+---
+
+### **16. Create an array with six elements and use the map method to double each element.**
+
+```js
+const arr = [1, 2, 3, 4, 5, 6];
+const doubled = arr.map(num => num * 2);
+console.log(doubled); // Output: [2, 4, 6, 8, 10, 12]
+```
+
+---
+
+### **17. Create an array with four elements and use the while loop to calculate the sum of all elements.**
+
+```js
+const arr = [10, 20, 30, 40];
+let sum = 0, i = 0;
+while (i < arr.length) {
+  sum += arr[i];
+  i++;
+}
+console.log(sum); // Output: 100
+```
+
+---
+
+### **18. Create an array with five elements and use the filter method to return only the even numbers.**
+
+```js
+const arr = [1, 2, 3, 4, 5];
+const even = arr.filter(num => num % 2 === 0);
+console.log(even); // Output: [2, 4]
+```
+
+---
+
+### **19. Create an array with three elements and use the join method to concatenate the elements with a dash (-) separator.**
+
+```js
+const arr = ["HTML", "CSS", "JavaScript"];
+console.log(arr.join("-")); // Output: "HTML-CSS-JavaScript"
+```
+
+---
+
+### **20. Create two arrays with three elements each and use the concat method to combine them into a new array.**
+
+```js
+const a = [1, 2, 3];
+const b = [4, 5, 6];
+const combined = a.concat(b);
+console.log(combined); // Output: [1, 2, 3, 4, 5, 6]
+```
+
+---
+
+Would you like **Set & WeakSet Questions next** or **Function + Closure Interview Tasks**?
