@@ -568,4 +568,575 @@ console.log(combined); // Output: [1, 2, 3, 4, 5, 6]
 
 ---
 
-Would you like **Set & WeakSet Questions next** or **Function + Closure Interview Tasks**?
+Great! Since you said **yes**, I’ll give you **both** — starting with **Set & WeakSet questions with answers**, followed by **Function & Closure interview tasks**.
+
+---
+
+## ✅ **Set & WeakSet Questions (with Answers)**
+
+---
+
+### **1. Create a new Set and add values to it.**
+
+```js
+const mySet = new Set();
+mySet.add(1);
+mySet.add(2);
+mySet.add(3);
+console.log(mySet); // Set { 1, 2, 3 }
+```
+
+---
+
+### **2. Check if a value exists in a Set.**
+
+```js
+console.log(mySet.has(2)); // true
+```
+
+---
+
+### **3. Remove an element from a Set.**
+
+```js
+mySet.delete(2);
+console.log(mySet); // Set { 1, 3 }
+```
+
+---
+
+### **4. Iterate over a Set using for...of loop.**
+
+```js
+for (const value of mySet) {
+  console.log(value); // 1, then 3
+}
+```
+
+---
+
+### **5. Get the size of a Set.**
+
+```js
+console.log(mySet.size); // 2
+```
+
+---
+
+### **6. Clear all elements in a Set.**
+
+```js
+mySet.clear();
+console.log(mySet); // Set {}
+```
+
+---
+
+### **7. Create a Set from an array (with duplicates).**
+
+```js
+const arr = [1, 2, 2, 3, 3, 4];
+const uniqueSet = new Set(arr);
+console.log([...uniqueSet]); // [1, 2, 3, 4]
+```
+
+---
+
+### **8. What is a WeakSet in JavaScript?**
+
+A `WeakSet` only stores **objects**, and those objects are held **weakly** (non-preventing garbage collection).
+
+---
+
+### **9. Create a WeakSet and add objects.**
+
+```js
+const ws = new WeakSet();
+const obj = { name: "Manoj" };
+ws.add(obj);
+console.log(ws.has(obj)); // true
+```
+
+---
+
+### **10. Why can’t you iterate over a WeakSet?**
+
+Because WeakSets are **not enumerable**, and don’t support iteration (`forEach`, `for...of`) — for security and GC (Garbage Collection) reasons.
+
+---
+
+## ✅ **Function + Closure Interview Tasks (with Answers)**
+
+---
+
+### **1. Write a function that returns another function (Closure Example).**
+
+```js
+function outer(x) {
+  return function inner(y) {
+    return x + y;
+  }
+}
+const add5 = outer(5);
+console.log(add5(3)); // Output: 8
+```
+
+---
+
+### **2. Create a function that remembers how many times it has been called.**
+
+```js
+function counter() {
+  let count = 0;
+  return function () {
+    count++;
+    return count;
+  };
+}
+const countCalls = counter();
+console.log(countCalls()); // 1
+console.log(countCalls()); // 2
+```
+
+---
+
+### **3. Create a private variable using closure.**
+
+```js
+function secretHolder() {
+  let secret = "I am private";
+  return {
+    getSecret: () => secret,
+    setSecret: (newSecret) => secret = newSecret,
+  };
+}
+const sh = secretHolder();
+console.log(sh.getSecret()); // "I am private"
+sh.setSecret("Updated!");
+console.log(sh.getSecret()); // "Updated!"
+```
+
+---
+
+### **4. Implement a custom `once` function (only runs once).**
+
+```js
+function once(fn) {
+  let called = false;
+  let result;
+  return function (...args) {
+    if (!called) {
+      result = fn(...args);
+      called = true;
+    }
+    return result;
+  };
+}
+const runOnce = once(() => "Running!");
+console.log(runOnce()); // "Running!"
+console.log(runOnce()); // "Running!" (cached)
+```
+
+---
+
+### **5. Make a debounce function using closure.**
+
+```js
+function debounce(fn, delay) {
+  let timer;
+  return function (...args) {
+    clearTimeout(timer);
+    timer = setTimeout(() => fn(...args), delay);
+  };
+}
+```
+
+Usage:
+
+```js
+const log = () => console.log("Typing stopped");
+const debouncedLog = debounce(log, 300);
+debouncedLog(); debouncedLog(); // logs only once after pause
+```
+
+---
+
+**Promise + Async-Await Questions**, **DOM Interview Tasks**, or **Real-Time System Design Questions (e.g. infinite scroll, modal manager)**
+
+Perfect! Since you said **yes**, I’ll give you **all three** categories one by one — with **interview-ready JavaScript questions and answers**.
+
+---
+
+## ✅ **1. Promise + Async/Await Questions with Answers**
+
+---
+
+### **1. What is a Promise in JavaScript?**
+
+A Promise is an object that represents the **eventual completion (or failure)** of an asynchronous operation and its resulting value.
+
+---
+
+### **2. Create a Promise that resolves after 2 seconds.**
+
+```js
+const myPromise = new Promise((resolve, reject) => {
+  setTimeout(() => resolve("Done!"), 2000);
+});
+myPromise.then(console.log); // "Done!" after 2 seconds
+```
+
+---
+
+### **3. What is async/await in JavaScript?**
+
+`async` makes a function return a Promise.
+`await` pauses the execution of an `async` function until the Promise is resolved.
+
+---
+
+### **4. Rewrite above Promise code using async/await.**
+
+```js
+async function run() {
+  const result = await new Promise(resolve => {
+    setTimeout(() => resolve("Done!"), 2000);
+  });
+  console.log(result); // "Done!"
+}
+run();
+```
+
+---
+
+### **5. What happens if a Promise is rejected inside async function?**
+
+Use `try/catch` to handle it:
+
+```js
+async function fetchData() {
+  try {
+    let data = await fetch("wrong_url");
+  } catch (err) {
+    console.error("Error:", err.message);
+  }
+}
+```
+
+---
+
+### **6. How do you run multiple Promises in parallel?**
+
+```js
+Promise.all([
+  Promise.resolve(1),
+  Promise.resolve(2)
+]).then(console.log); // [1, 2]
+```
+
+---
+
+## ✅ **2. DOM Interview Tasks (with Examples)**
+
+---
+
+### **1. Add a class to a DOM element.**
+
+```js
+document.querySelector("div").classList.add("highlight");
+```
+
+---
+
+### **2. Toggle visibility of an element on button click.**
+
+```js
+document.querySelector("button").addEventListener("click", () => {
+  const box = document.querySelector("#box");
+  box.style.display = box.style.display === "none" ? "block" : "none";
+});
+```
+
+---
+
+### **3. Change text content of an element.**
+
+```js
+document.getElementById("title").textContent = "New Title";
+```
+
+---
+
+### **4. Append a new list item.**
+
+```js
+const li = document.createElement("li");
+li.textContent = "New Item";
+document.querySelector("ul").appendChild(li);
+```
+
+---
+
+### **5. Add event delegation to list.**
+
+```js
+document.querySelector("ul").addEventListener("click", function(e) {
+  if (e.target.tagName === "LI") {
+    alert("Clicked: " + e.target.textContent);
+  }
+});
+```
+
+---
+
+## ✅ **3. Real-Time System Design: JS Tasks**
+
+---
+
+### **1. Infinite Scroll Skeleton (basic idea)**
+
+```js
+window.addEventListener("scroll", () => {
+  if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 10) {
+    loadMoreItems(); // Fetch and append more items
+  }
+});
+```
+
+---
+
+### **2. Modal Manager in JavaScript**
+
+```js
+function openModal() {
+  document.getElementById("modal").style.display = "block";
+}
+function closeModal() {
+  document.getElementById("modal").style.display = "none";
+}
+document.getElementById("openBtn").onclick = openModal;
+document.getElementById("closeBtn").onclick = closeModal;
+```
+
+---
+
+### **3. Debounced Search Box**
+
+```js
+function debounce(fn, delay) {
+  let timer;
+  return function (...args) {
+    clearTimeout(timer);
+    timer = setTimeout(() => fn(...args), delay);
+  };
+}
+const search = debounce((query) => {
+  console.log("Searching for:", query);
+}, 300);
+
+document.getElementById("searchInput").addEventListener("input", (e) => {
+  search(e.target.value);
+});
+```
+
+---
+
+Great! Let's continue with **all three** sections — these are **must-know topics** for frontend interviews.
+
+---
+
+## ✅ **1. JavaScript Event Loop & Microtask Queue – Questions with Answers**
+
+---
+
+### **1. What is the Event Loop in JavaScript?**
+
+The Event Loop is a mechanism that allows JavaScript to **perform non-blocking operations** by handling **callbacks, Promises, events, etc.** asynchronously using **queues**.
+
+---
+
+### **2. What is the Call Stack?**
+
+It’s where function calls are added and removed in **LIFO** order. JS runs one function at a time from this stack.
+
+---
+
+### **3. What is the Microtask Queue?**
+
+It stores callbacks from resolved **Promises** or `queueMicrotask()`. It's **processed before** the macrotask queue.
+
+---
+
+### **4. What is the Macrotask Queue?**
+
+It stores tasks like `setTimeout`, `setInterval`, or DOM events. These are processed **after** the microtask queue.
+
+---
+
+### **5. What is the output of this code? Why?**
+
+```js
+console.log("Start");
+
+setTimeout(() => console.log("setTimeout"), 0);
+
+Promise.resolve().then(() => console.log("Promise"));
+
+console.log("End");
+```
+
+**Output:**
+
+```
+Start
+End
+Promise
+setTimeout
+```
+
+**Explanation:**
+
+* Sync: "Start" → "End"
+* Microtask (Promise): after sync
+* Macrotask (setTimeout): after microtask
+
+---
+
+## ✅ **2. Browser Rendering & Performance Interview Q\&A**
+
+---
+
+### **1. What is the Critical Rendering Path?**
+
+It's the steps the browser takes to **convert HTML, CSS, and JS into pixels** on the screen.
+
+---
+
+### **2. What blocks browser rendering?**
+
+* **Synchronous JavaScript**
+* **Large CSS files**
+* **Blocking external fonts**
+* **Too many DOM manipulations**
+
+---
+
+### **3. How can you improve page performance?**
+
+* Minify CSS/JS
+* Use `async`/`defer` with scripts
+* Lazy-load images
+* Use caching/CDNs
+* Reduce DOM depth
+
+---
+
+### **4. Difference: repaint vs reflow**
+
+* **Repaint**: visual change without layout (e.g., color).
+* **Reflow**: layout recalculation (e.g., size, position). Reflows are **more expensive**.
+
+---
+
+### **5. What is layout thrashing and how to avoid it?**
+
+**Layout thrashing** happens when JS reads & writes to the DOM **repeatedly**, triggering multiple reflows. Avoid by **batching DOM reads/writes**.
+
+---
+
+## ✅ **3. HTML/CSS Rapid Revision + 10 Tricky Interview Scenarios**
+
+---
+
+### **1. What are semantic HTML tags?**
+
+Tags that convey meaning: `<article>`, `<section>`, `<main>`, `<aside>`, `<header>`, `<footer>`, etc.
+
+---
+
+### **2. How do you make a div a circle in CSS?**
+
+```css
+.circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+```
+
+---
+
+### **3. What is the difference between `visibility: hidden` and `display: none`?**
+
+* `visibility: hidden`: Hides element but occupies space.
+* `display: none`: Hides and removes from layout.
+
+---
+
+### **4. How to center a div using Flexbox?**
+
+```css
+.parent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+```
+
+---
+
+### **5. How does z-index work?**
+
+Used to control stacking of elements. Works only on positioned elements (relative, absolute, fixed).
+
+---
+
+### **6. How to make a responsive grid using CSS Grid?**
+
+```css
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+```
+
+---
+
+### **7. What is the difference between absolute and fixed positioning?**
+
+* **absolute**: positioned relative to nearest positioned ancestor.
+* **fixed**: positioned relative to viewport.
+
+---
+
+### **8. How do you hide elements only on mobile screens?**
+
+```css
+@media (max-width: 768px) {
+  .hide-on-mobile {
+    display: none;
+  }
+}
+```
+
+---
+
+### **9. What is specificity in CSS?**
+
+It determines **which rule wins** when multiple CSS rules apply. Inline > ID > Class > Tag.
+
+---
+
+### **10. How to make a sticky header?**
+
+```css
+header {
+  position: sticky;
+  top: 0;
+  background: white;
+}
+```
+
+---
+
+
