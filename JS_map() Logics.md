@@ -1,6 +1,16 @@
-Here are all **19 JavaScript Map Questions with Answers**:
+Here are all *** JavaScript Map Questions with Answers**:
 
 ---
+### map() Explanation:
+```
+A function that accepts up to three arguments.
+The map method calls the callbackfn function
+one time for each element in the array.
+Calls a defined callback function on each
+element of an array, and returns an array that contains the results.
+
+```
+
 
 ### **1. Create a new Map and add key-value pairs to it.**
 
